@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  mysql:
+    build:
+      context: ./docker/mysql
+      args:
+        mysql_version: 5.7
+    container_name: docker-mysql
+    environment:
+      MYSQL_DATABASE: dbname
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpass
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    restart: always 
+    volumes:
+       - ./init.sql:/docker-entrypoint-initdb.d/init.sql   # Este volume es para que use el init.sql
+
+
+  php:
+    build:
+      context: ./docker/php
+      args:
+        php_version: 7.3-apache
+    container_name: docker-php
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+    links:
+      - mysql
