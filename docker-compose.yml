@@ -2,11 +2,11 @@ version: '3'
 
 services:
   mysql:
-    image: mariadb
-#    build:
-#      context: ./docker/mysql
-#      args:
-#        mysql_version: 5.7
+#    image: mariadb
+    build:
+      context: ./docker/mysql
+      args:
+        mysql_version: 8.4
     container_name: docker-mysql
     environment:
       MYSQL_DATABASE: dbname
@@ -21,14 +21,14 @@ services:
 
 
   php:
-    image: php:apache
-#    build:
-#      context: ./docker/php
-#      args:
-#        php_version: 7.3-apache
+#    image: php:apache
+    build:
+      context: ./docker/php
+      args:
+        php_version: 8.2-apache
     container_name: docker-php
     ports:
-      - "80:80"
+      - "8100:80"
     volumes:
       - ./www:/var/www/html
     links:
