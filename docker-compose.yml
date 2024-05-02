@@ -2,7 +2,6 @@ version: '3'
 
 services:
   mysql:
-#    image: mariadb:latest
     build:
       context: ./docker/mysql
       args:
@@ -17,11 +16,9 @@ services:
       - "3306:3306"
     restart: unless-stopped 
     volumes:
-       - ./init.sql:/docker-entrypoint-initdb.d/init.sql   # Este volume es para que use el init.sql
-
+       - ./init.sql:/docker-entrypoint-initdb.d/init.sql  
 
   php:
-#    image: php:apache
     build:
       context: ./docker/php
       args:
