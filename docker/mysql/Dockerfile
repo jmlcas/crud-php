@@ -1,3 +1,3 @@
 ARG mysql_version
 
-FROM mariadb
+FROM mysql:8.4
