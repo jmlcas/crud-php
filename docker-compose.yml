@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mysql:
-  image: mariadb
+    image: mariadb
 #    build:
 #      context: ./docker/mysql
 #      args:
