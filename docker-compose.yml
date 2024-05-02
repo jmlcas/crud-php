@@ -2,11 +2,11 @@ version: '3'
 
 services:
   mysql:
-    image: mariadb:latest
-#    build:
-#      context: ./docker/mysql
-#      args:
-#        mysql_version: 8.4
+#    image: mariadb:latest
+    build:
+      context: ./docker/mysql
+      args:
+        mysql_version: 8.4
     container_name: docker-mysql
     environment:
       MYSQL_DATABASE: dbname
