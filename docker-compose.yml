@@ -1,11 +1,8 @@
 services:
 
   mysql:
-    build:
-      context: ./docker/mysql
-      args:
-        mysql_version: latest
-    container_name: docker-mysql
+    image: mariadb:latest
+    container_name: mysql
     environment:
       MYSQL_DATABASE: dbname
       MYSQL_USER: dbuser
