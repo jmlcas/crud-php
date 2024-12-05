@@ -4,7 +4,7 @@ services:
     build:
       context: ./docker/mysql
       args:
-        mysql_version: 8.4
+        mysql_version: latest
     container_name: docker-mysql
     environment:
       MYSQL_DATABASE: dbname
@@ -21,7 +21,7 @@ services:
     build:
       context: ./docker/php
       args:
-        php_version: 7.4-apache
+        php_version: 8.1-apache
     container_name: docker-php
     ports:
       - "8100:80"
