@@ -1,0 +1,4 @@
+    build:
+      context: ./docker/mysql
+      args:
+        mysql_version: 8.4
